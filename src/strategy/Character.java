@@ -1,7 +1,7 @@
-package patterns.strategy;
+package strategy;
 
-import patterns.strategy.behavior.speed.SpeedBehavior;
-import patterns.strategy.behavior.weapon.WeaponBehavior;
+import strategy.behavior.speed.SpeedBehavior;
+import strategy.behavior.weapon.WeaponBehavior;
 
 public abstract class Character {
   private WeaponBehavior weapon;

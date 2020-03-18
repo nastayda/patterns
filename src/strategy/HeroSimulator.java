@@ -1,7 +1,7 @@
-package patterns.strategy;
+package strategy;
 
-import patterns.strategy.examples.Knight;
-import patterns.strategy.examples.Troll;
+import strategy.examples.Knight;
+import strategy.examples.Troll;
 
 public class HeroSimulator {
   public static void main(String[] args){

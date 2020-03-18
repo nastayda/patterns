@@ -1,4 +1,4 @@
-package patterns.strategy.behavior.weapon;
+package strategy.behavior.weapon;
 
 public interface WeaponBehavior {
   void useWeapon();

@@ -1,4 +1,4 @@
-package patterns.strategy.behavior.weapon;
+package strategy.behavior.weapon;
 
 public class AxeBehavior implements WeaponBehavior {
   @Override

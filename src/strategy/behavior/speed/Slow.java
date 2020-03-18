@@ -1,4 +1,4 @@
-package patterns.strategy.behavior.speed;
+package strategy.behavior.speed;
 
 public class Slow implements SpeedBehavior {
   @Override
