@@ -5,3 +5,4 @@
 # Project specific
 output/*
 out/*
+/strategy/out/*
