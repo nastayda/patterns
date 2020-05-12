@@ -6,7 +6,6 @@ import java.util.*;
 public class Waitress {
 	ArrayList<Menu> menus;
 
-
 	public Waitress(ArrayList<Menu> menus) {
 		this.menus = menus;
 	}
@@ -22,9 +21,9 @@ public class Waitress {
 	void printMenu(Iterator<?> iterator) {
 		while (iterator.hasNext()) {
 			MenuItem menuItem = (MenuItem) iterator.next();
-			System.out.print(menuItem.getName() + ", ");
+			System.out.print(String.format("================= %s =================\n", menuItem.getName()));
 			System.out.print(menuItem.getPrice() + " -- ");
-			System.out.println(menuItem.getDescription());
+			System.out.println(menuItem.getDescription() + "\n");
 		}
 	}
 }  
