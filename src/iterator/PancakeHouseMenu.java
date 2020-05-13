@@ -5,8 +5,11 @@ import java.util.Iterator;
 
 public class PancakeHouseMenu implements Menu {
   ArrayList<MenuItem> menuItems;
+  private String name;
 
   public PancakeHouseMenu() {
+    name = "PANCAKES MENU";
+
     menuItems = new ArrayList<>();
 
     addItem("K&B's Pancake Breakfast",
@@ -42,6 +45,11 @@ public class PancakeHouseMenu implements Menu {
 
   public Iterator<MenuItem> createIterator() {
     return menuItems.iterator();
+  }
+
+  @Override
+  public String getMenuName() {
+    return name;
   }
 
   // other menu methods here

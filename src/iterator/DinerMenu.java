@@ -7,7 +7,11 @@ public class DinerMenu implements Menu {
 	int numberOfItems = 0;
 	MenuItem[] menuItems;
 
+	private String name;
+
 	public DinerMenu() {
+		name = "DINNER MENU";
+
 		menuItems = new MenuItem[MAX_ITEMS];
 
 		addItem("Vegetarian BLT",
@@ -44,6 +48,10 @@ public class DinerMenu implements Menu {
 	public Iterator<MenuItem> createIterator() {
 		return new DinerMenuIterator(menuItems);
 		//return new AlternatingDinerMenuIterator(menuItems);
+	}
+
+	public String getMenuName() {
+		return name;
 	}
 
 	// other menu methods here
