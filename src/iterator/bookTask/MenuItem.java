@@ -1,4 +1,4 @@
-package iterator;
+package iterator.bookTask;
 
 public class MenuItem {
 	String name;
