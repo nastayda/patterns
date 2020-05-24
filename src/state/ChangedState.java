@@ -1,0 +1,32 @@
+package state;
+
+public class ChangedState implements State {
+  private Resume resume;
+
+  public ChangedState(Resume resume) {
+    this.resume = resume;
+  }
+
+  @Override
+  public void create() {
+    System.out.println("Resume has been already created");
+  }
+
+  @Override
+  public void change() {
+    System.out.println("Resume was changed");
+    resume.setState(resume.getIsChangedState());
+  }
+
+  @Override
+  public void publish() {
+    System.out.println("Resume was published");
+    resume.setState(resume.getIsPublishedState());
+  }
+
+  @Override
+  public void delete() {
+    System.out.println("Resume was deleted");
+    resume.setState(resume.getIsDeletedState());
+  }
+}
