@@ -1,20 +1,20 @@
 package state;
 
 public class Resume {
-  private State isCreatedState;
-  private State isPublishedState;
-  private State isChangedState;
-  private State isDeletedState;
+  private State createdState;
+  private State publishedState;
+  private State changedState;
+  private State deletedState;
 
   private State state;
 
   public Resume() {
-    isCreatedState = new CreatedState(this);
-    isPublishedState = new PublishedState(this);
-    isChangedState = new ChangedState(this);
-    isDeletedState = new DeletedState(this);
+    createdState = new CreatedState(this);
+    publishedState = new PublishedState(this);
+    changedState = new ChangedState(this);
+    deletedState = new DeletedState(this);
 
-    state = isCreatedState;
+    state = createdState;
   }
 
   public void change() {
@@ -33,15 +33,15 @@ public class Resume {
     this.state = state;
   }
 
-  public State getIsChangedState() {
-    return isChangedState;
+  public State getChangedState() {
+    return changedState;
   }
 
-  public State getIsPublishedState() {
-    return isPublishedState;
+  public State getPublishedState() {
+    return publishedState;
   }
 
-  public State getIsDeletedState() {
-    return isDeletedState;
+  public State getDeletedState() {
+    return deletedState;
   }
 }

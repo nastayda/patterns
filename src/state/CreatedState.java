@@ -16,18 +16,18 @@ public class CreatedState implements State {
   @Override
   public void change() {
     System.out.println("Resume was changed");
-    resume.setState(resume.getIsChangedState());
+    resume.setState(resume.getChangedState());
   }
 
   @Override
   public void publish() {
     System.out.println("Resume was published");
-    resume.setState(resume.getIsPublishedState());
+    resume.setState(resume.getPublishedState());
   }
 
   @Override
   public void delete() {
     System.out.println("Resume was deleted");
-    resume.setState(resume.getIsDeletedState());
+    resume.setState(resume.getDeletedState());
   }
 }

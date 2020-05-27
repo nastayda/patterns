@@ -15,7 +15,7 @@ public class PublishedState implements State {
   @Override
   public void change() {
     System.out.println("Resume was changed");
-    resume.setState(resume.getIsChangedState());
+    resume.setState(resume.getChangedState());
   }
 
   @Override
@@ -26,6 +26,6 @@ public class PublishedState implements State {
   @Override
   public void delete() {
     System.out.println("Resume was deleted");
-    resume.setState(resume.getIsDeletedState());
+    resume.setState(resume.getDeletedState());
   }
 }
