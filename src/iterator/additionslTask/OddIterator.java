@@ -1,11 +1,10 @@
 package iterator.additionslTask;
 
-import java.util.Iterator;
+import java.util.ArrayList;
 
 public class OddIterator extends CommonIterator {
-
-  public OddIterator(Iterator<Integer> iterator) {
-    super(iterator);
+  public OddIterator(ArrayList<Integer> list) {
+    super(list);
   }
 
   @Override

@@ -1,10 +1,10 @@
 package iterator.additionslTask;
 
-import java.util.Iterator;
+import java.util.ArrayList;
 
 public class EvenIterator extends CommonIterator {
-  public EvenIterator(Iterator<Integer> currentIterator) {
-    super(currentIterator);
+  public EvenIterator(ArrayList<Integer> list) {
+    super(list);
   }
 
   @Override

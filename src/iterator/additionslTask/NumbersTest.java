@@ -21,16 +21,16 @@ public class NumbersTest {
 //    newValues.addAll(evenNumbers);
 //    client.printAndGetList(IteratorType.SORTED, newValues);
 
-    EvenIterator even = new EvenIterator(list.iterator());
-    System.out.print("Even numbers: ");
-    even.forEachRemaining(ev -> System.out.print(ev + ", "));
+    MultiIterator odd = new MultiIterator(new OddIterator(list));
+    System.out.print("\nOdd: ");
+    odd.forEachRemaining(it -> System.out.print(it + ", "));
 
-    OddIterator odd = new OddIterator(list.iterator());
-    System.out.print("\nOdd numbers: ");
-    odd.forEachRemaining(od -> System.out.print(od + ", "));
+    MultiIterator even = new MultiIterator(new EvenIterator(list));
+    System.out.print("\nEven: ");
+    even.forEachRemaining(it -> System.out.print(it + ", "));
 
-    SortedIterator sorted = new SortedIterator(odd);
-    System.out.print("\nSorted numbers: ");
-    sorted.forEachRemaining(sort -> System.out.print(sort + ", "));
+    MultiIterator sorted = new MultiIterator(new EvenIterator(list), new OddIterator(list));
+    System.out.print("\nSorted: ");
+    sorted.forEachRemaining(it -> System.out.print(it + ", "));
   }
 }
