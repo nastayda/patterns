@@ -1,37 +1,31 @@
 package iterator.additionslTask;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
 
-public class MultiIterator implements Iterator<Integer> {
-  private int size;
-  private Object[] elementData;
-  private int cursor;       // index of next element to return
-  private int lastRet = -1; // index of last element returned; -1 if no such
+public class MultiIterator {
+  private final CommonIterator[] iterators;
 
   public MultiIterator(CommonIterator... iterators) {
-    elementData = getArrayFromIterators(iterators);
-    size = elementData.length;
-  }
-
-  private Object[] getArrayFromIterators(CommonIterator[] iterators) {
-    ArrayList<Integer> modifiedList = new ArrayList<>();
-
-    for (CommonIterator iterator : iterators) {
-      modifiedList.addAll(iterator.getModifiedList());
-    }
-    Collections.sort(modifiedList);
-    return modifiedList.toArray();
-  }
-
-  public boolean hasNext() {
-    return cursor != size;
+    this.iterators = iterators;
   }
 
   public Integer next() {
-    int i = cursor;
-    cursor = i + 1;
-    return (Integer) elementData[lastRet = i];
+    ArrayList<Integer> temp = new ArrayList<>();
+
+    for (CommonIterator iterator : iterators) {
+      if (iterator.hasNext()) {
+        temp.add(iterator.next());
+      } else temp.add(Integer.MAX_VALUE);
+    }
+    Integer min = Collections.min(temp);
+    iterators[temp.indexOf(min)].moveCursor();
+    return min;
+  }
+
+  public boolean hasNext() {
+    return Arrays.stream(iterators).anyMatch(Iterator::hasNext);
   }
 }

@@ -1,27 +1,14 @@
 package iterator.additionslTask;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
-public abstract class CommonIterator {
-  public ArrayList<Integer> list;
-  public ArrayList<Integer> modifiedList = new ArrayList<>();
+public abstract class CommonIterator implements Iterator<Integer> {
+  protected ArrayList<Integer> list;
 
   public CommonIterator(ArrayList<Integer> list) {
     this.list = list;
-    sortElements();
   }
 
-  private void sortElements() {
-    for (Integer item : list) {
-      if (validateNumber(item)) {
-        modifiedList.add(item);
-      }
-    }
-  }
-
-  public ArrayList<Integer> getModifiedList() {
-    return modifiedList;
-  }
-
-  abstract boolean validateNumber(Integer item);
+  abstract void moveCursor();
 }
