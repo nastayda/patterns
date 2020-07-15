@@ -18,10 +18,10 @@ public class NumbersTest {
       System.out.print(oddIter.next() + ", ");
     }
 
-    MultiIterator evenIter = new MultiIterator(new EvenIterator(list));
+    MultiIterator evenIterMulti = new MultiIterator(new EvenIterator(list));
     System.out.print("\nEven using multi: ");
-    while (evenIter.hasNext()) {
-      System.out.print(evenIter.next() + ", ");
+    while (evenIterMulti.hasNext()) {
+      System.out.print(evenIterMulti.next() + ", ");
     }
 
     MultiIterator multiIterator = new MultiIterator(new EvenIterator(list), new OddIterator(list));

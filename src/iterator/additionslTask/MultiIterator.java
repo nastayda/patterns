@@ -1,9 +1,6 @@
 package iterator.additionslTask;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.Iterator;
 
 public class MultiIterator {
   private final CommonIterator[] iterators;
@@ -13,19 +10,12 @@ public class MultiIterator {
   }
 
   public Integer next() {
-    ArrayList<Integer> temp = new ArrayList<>();
-
-    for (CommonIterator iterator : iterators) {
-      if (iterator.hasNext()) {
-        temp.add(iterator.next());
-      } else temp.add(Integer.MAX_VALUE);
-    }
-    Integer min = Collections.min(temp);
-    iterators[temp.indexOf(min)].moveCursor();
-    return min;
+    Arrays.sort(iterators);
+    return iterators[0].next();
   }
 
   public boolean hasNext() {
-    return Arrays.stream(iterators).anyMatch(Iterator::hasNext);
+    Arrays.sort(iterators);
+    return iterators[0].hasNext();
   }
 }
