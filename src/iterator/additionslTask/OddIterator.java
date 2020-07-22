@@ -6,7 +6,6 @@ public class OddIterator extends CommonIterator {
 
   public OddIterator(ArrayList<Integer> inputList) {
     super(inputList);
-    size = inputList.size();
   }
 
   @Override

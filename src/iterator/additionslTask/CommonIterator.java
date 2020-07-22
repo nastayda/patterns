@@ -7,9 +7,13 @@ public abstract class CommonIterator implements Iterator<Integer>, Comparable<Co
   protected ArrayList<Integer> list;
   protected int currentIndex = 0;
   protected int size;
+  private Integer nextElement;
+  private int nextPosition;
 
   public CommonIterator(ArrayList<Integer> list) {
     this.list = list;
+    size = list.size();
+    nextWithoutShift();
   }
 
   abstract boolean perform(int item);
@@ -21,7 +25,7 @@ public abstract class CommonIterator implements Iterator<Integer>, Comparable<Co
     } else if (!this.hasNext()) {
       return 1;
     }
-    return (this.nextWithoutShift() - o.nextWithoutShift());
+    return (this.getNextElement() - o.getNextElement());
   }
 
   @Override
@@ -29,34 +33,29 @@ public abstract class CommonIterator implements Iterator<Integer>, Comparable<Co
     return currentIndex < size && nextWithoutShift() != null;
   }
 
+  private Integer getNextElement() {
+    return nextElement;
+  }
+
   @Override
   public Integer next() {
-    Integer item = null;
-    for (int i = currentIndex; i < size; i++) {
-      item = list.get(currentIndex);
-      currentIndex = currentIndex + 1;
-      if (perform(item)) {
-        return item;
-      } else {
-        item = list.get(currentIndex);
-      }
-    }
-    return item;
+    currentIndex = nextPosition;
+    return nextElement;
   }
 
   public Integer nextWithoutShift() {
-    int nextPosition = currentIndex;
+    nextPosition = currentIndex;
 
-    Integer item = null;
     for (int i = nextPosition; i < size; i++) {
-      item = list.get(nextPosition);
+      Integer item = list.get(nextPosition);
       nextPosition = nextPosition + 1;
+
       if (perform(item)) {
+        nextElement = item;
         return item;
-      } else if (nextPosition < size) {
-        item = list.get(nextPosition);
-      } else return null;
+      }
     }
-    return item;
+    nextElement = null;
+    return null;
   }
 }

@@ -6,7 +6,6 @@ public class EvenIterator extends CommonIterator {
 
   public EvenIterator(ArrayList<Integer> inputList) {
     super(inputList);
-    size = inputList.size();
   }
 
   @Override
