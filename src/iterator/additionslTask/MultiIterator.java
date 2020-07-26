@@ -18,4 +18,8 @@ public class MultiIterator {
     Arrays.sort(iterators);
     return iterators[0].hasNext();
   }
+
+  public CommonIterator[] getIterators() {
+    return iterators;
+  }
 }
