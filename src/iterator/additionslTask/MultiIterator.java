@@ -10,7 +10,6 @@ public class MultiIterator {
   }
 
   public Integer next() {
-    Arrays.sort(iterators);
     return iterators[0].next();
   }
 
