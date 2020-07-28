@@ -13,7 +13,7 @@ public abstract class CommonIterator implements Iterator<Integer>, Comparable<Co
   public CommonIterator(ArrayList<Integer> list) {
     this.list = list;
     size = list.size();
-    nextWithShift();
+    nextWithoutShift();
   }
 
   abstract boolean perform(int item);
@@ -30,7 +30,7 @@ public abstract class CommonIterator implements Iterator<Integer>, Comparable<Co
 
   @Override
   public boolean hasNext() {
-    return currentIndex < size && nextWithShift() != null;
+    return currentIndex < size && nextWithoutShift() != null;
   }
 
   private Integer getNextElement() {
@@ -43,7 +43,7 @@ public abstract class CommonIterator implements Iterator<Integer>, Comparable<Co
     return nextElement;
   }
 
-  private Integer nextWithShift() {
+  private Integer nextWithoutShift() {
     nextPosition = currentIndex;
 
     for (int i = nextPosition; i < size; i++) {
